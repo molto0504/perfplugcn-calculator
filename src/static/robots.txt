@@ -1,0 +1,6 @@
+User-agent: *
+allow: *
+Sitemap: http://www.ahfoiltools.com/sitemap.xml
+Sitemap: http://www.ahfoiltools.com/en/sitemap.xml
+
+
