@@ -1,20 +1,62 @@
-<div>
-  <h1 class="display-1">Custom HTML Block</h1>
-<!--  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#777" width="200" height="200"><path d="M6.1 8.7L2.8 12l3.3 3.3-1.4 1.4L0 12l4.7-4.7 1.4 1.4zm13.2-1.4l-1.4 1.4 3.3 3.3-3.3 3.3 1.4 1.4L24 12l-4.7-4.7zM8.1 18.6l1.8.8 6-14-1.8-.8-6 14z"></path></svg>-->
-<!--  <p class="display-3">Click to Open Code Editor</p>-->
-  <div id="cpuPie" style="height: 500px;width: 1300px; margin-left: auto; margin-right: auto" />
+<div style="width: 1350px; margin-left: auto; margin-right: auto">
+  <div id="calculatorPie" style="height: 500px;width: 1300px; margin-left: 50px; margin-bottom: 0; padding-bottom: 0" />
 </div>
+<div style="width: 1350px; margin-left: auto; margin-right: auto; margin-top: 0; padding-top: 0">
+  <table class="table is-bordered" style="margin-top: 0; padding-top: 0" >
+    <thead>
+      <th style="width: 180px"></th>
+      <th style="width: 150px">压裂段数</th>
+      <th style="width: 150px">压裂费用(万元)</th>
+      <th style="width: 140px">桥射联作费用(万元)</th>
+      <th style="width: 140px">连油钻塞费用(万年)</th>
+      <th style="width: 150px">桥塞费用(万元)</th>
+      <th style="width: 140px">压裂施工周期(万元)</th>
+      <th style="width: 160px">桥塞遇阻,提前坐封概率</th>
+      <th>射孔枪点火失败概率</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>优化段数前(常规压裂)</td>
+      <td>25</td>
+      <td>593</td>
+      <td>192</td>
+      <td>74</td>
+      <td>26</td>
+      <td>10.0</td>
+      <td>21</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>优化段数后(零桥塞压裂TM)</td>
+      <td>13</td>
+      <td>308</td>
+      <td>96</td>
+      <td>37</td>
+      <td>13</td>
+      <td>8.5</td>
+      <td>11</td>
+      <td>11</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <script>
-  const cht = echarts.init(document.getElementById('cpuPie'));
+  const cht = echarts.init(document.getElementById('calculatorPie'));
   const option = {
+    grid: {
+      bottom: '0',
+      right: '0',
+    },
     legend: {
       data: ['优化段数前(常规压裂)', '优化段数后(零桥塞压裂TM)'],
       orient: 'vertical',
       top: 0,
-      right: 30,
+      right: 50,
     },
     xAxis: {
+      show: false,
       type: 'category',
       nameTextStyle: {
         fontSize: 3,
@@ -34,7 +76,7 @@
         type: 'bar',
         data: [25, 593, 192, 74, 26, 10, 21, 21],
         barGap: '5%',
-        barWidth: '30%',
+        barWidth: '25%',
         itemStyle: {
           color: '#747474'
         },
@@ -44,7 +86,7 @@
         type: 'bar',
         data: [13, 308, 96, 37, 13, 8.5, 11, 11],
         barGap: '5%',
-        barWidth: '30%',
+        barWidth: '25%',
         itemStyle: {
           color: '#0057a7'
         },
@@ -56,3 +98,8 @@
   };
   cht.setOption(option);
 </script>
+<style>
+.table {
+  font-size: 13px;
+}
+</style>
