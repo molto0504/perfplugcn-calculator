@@ -4,13 +4,15 @@
   "description": "TM web",
   "author": "tsingj",
   "scripts": {
-    "dev": "open ./public/index.html",
-    "build": "open ./public/index.html",
+    "dev": "npm run build; open ./build/index.html",
+    "build": "node ./scripts/build.js",
     "lint": "eslint --ext .js,.vue --fix src",
     "test": "jest --no-cache"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "fs-extra": "^11.2.0"
+  },
   "engines": {
     "node": ">=14.0.0 <15.0.0",
     "npm": ">=3.0.0"
