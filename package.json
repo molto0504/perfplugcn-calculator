@@ -1,0 +1,22 @@
+{
+  "name": "tm-web",
+  "version": "1.4.0",
+  "description": "TM web",
+  "author": "tsingj",
+  "scripts": {
+    "dev": "open ./public/index.html",
+    "build": "open ./public/index.html",
+    "lint": "eslint --ext .js,.vue --fix src",
+    "test": "jest --no-cache"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0 <15.0.0",
+    "npm": ">=3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
