@@ -1,5 +1,136 @@
-<div style="width: 1350px; margin-left: auto; margin-right: auto">
-  <div id="calculatorPie" style="height: 500px;width: 1300px; margin-left: 50px; margin-bottom: 0; padding-bottom: 0" />
+<div style="width: 1350px; margin-left: auto; margin-right: auto; margin-bottom: 0; padding-bottom: 0">
+  <div class="columns" style="margin: 0; padding: 0">
+    <div class="column" style="margin: 0; padding: 0">
+      <div style="width: 600px; margin: 0; padding: 0">
+        <table class="table is-bordered has-text-centered">
+          <thead class="has-text-centered">
+            <th class="has-text-centered">item</th>
+            <th class="has-text-centered">单价</th>
+            <th class="has-text-centered">单位</th>
+            <th class="has-text-centered">数量</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>压裂车费用</td>
+              <td>0.95</td>
+              <td>万元/台/段</td>
+              <td><input class="input is-small has-text-centered" type="text" placeholder="请输入" value="24"></td>
+            </tr>
+            <tr>
+              <td>混砂车费用</td>
+              <td>0.6</td>
+              <td>万元/台/段</td>
+              <td><input class="input is-small has-text-centered" type="text" placeholder="请输入" value="21"></td>
+            </tr>
+            <tr>
+              <td>仪表车</td>
+              <td>0.3</td>
+              <td>万元/台/段</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>桥射联作费用</td>
+              <td>8</td>
+              <td>万元/段</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>连油钻塞费用</td>
+              <td>3.1</td>
+              <td>万元/个</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>桥塞费用</td>
+              <td>1.1</td>
+              <td>万元/个</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>压裂施工速度</td>
+              <td>2.5</td>
+              <td>段/天</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>桥射联作耗时</td>
+              <td>3</td>
+              <td>小时/段</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>桥塞遇阻,提前坐封概率</td>
+              <td>1</td>
+              <td>%/趟</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>射孔枪点火失败概率</td>
+              <td>1</td>
+              <td>%/趟</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="column" style="margin: 0; padding: 0">
+      <div style="width: 600px; margin: 0; padding: 0">
+        <table class="table is-bordered has-text-centered">
+          <thead class="has-text-centered">
+            <th class="has-text-centered"></th>
+            <th class="has-text-centered">优化段数前(常规压裂)</th>
+            <th class="has-text-centered">优化段数后(零桥塞压裂TM)</th>
+          </thead>
+          <tbody>
+          <tr>
+            <td>压裂段数</td>
+            <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="25"></td>
+            <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="13"></td>
+          </tr>
+          <tr>
+            <td>压裂费用(万元)</td>
+            <td>593</td>
+            <td>308</td>
+          </tr>
+          <tr>
+            <td>桥射联作费用(万元)</td>
+            <td>192</td>
+            <td>96</td>
+          </tr>
+          <tr>
+            <td>连油钻塞费用(万元)</td>
+            <td>74</td>
+            <td>37</td>
+          </tr>
+          <tr>
+            <td>桥塞费用(万元)</td>
+            <td>26</td>
+            <td>13</td>
+          </tr>
+          <tr>
+            <td>压裂施工周期(天)</td>
+            <td>10.0</td>
+            <td>8.5</td>
+          </tr>
+          <tr>
+            <td>桥塞遇阻,提前坐封概率</td>
+            <td>21%</td>
+            <td>11%</td>
+          </tr>
+          <tr>
+            <td>射孔枪点火失败概率</td>
+            <td>21%</td>
+            <td>11%</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="width: 1350px; margin-left: auto; margin-right: auto; margin-top: 0; padding-top: 0">
+  <div id="calculatorPie" style="height: 450px;width: 1300px; margin-left: 50px; margin-bottom: 0; padding-bottom: 0; margin-top: 0; padding-top: 0" />
 </div>
 <div style="width: 1350px; margin-left: auto; margin-right: auto; margin-top: 0; padding-top: 0">
   <table class="table is-bordered" style="margin-top: 0; padding-top: 0" >
