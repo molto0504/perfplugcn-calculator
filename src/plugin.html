@@ -251,6 +251,10 @@
     field_射孔枪点火失败概率_N_2: 1,
   };
   const CHART_DATA = {
+    field_段数减少: 0,
+    field_费用减少: 0,
+    field_施工时间减少: 0,
+    field_桥射联作风险降低: 0,
     beforeOptimized: {
       field_压裂段数: 0,
       field_压裂费用: 0,
@@ -259,7 +263,7 @@
       field_桥塞费用: 0,
       field_压裂施工周期: 0,
       field_桥塞遇阻提前坐封概率: 0,
-      field_射孔枪点火失败概率: 0
+      field_射孔枪点火失败概率: 0,
     },
     afterOptimized: {
       field_压裂段数: 0,
@@ -269,7 +273,7 @@
       field_桥塞费用: 0,
       field_压裂施工周期: 0,
       field_桥塞遇阻提前坐封概率: 0,
-      field_射孔枪点火失败概率: 0
+      field_射孔枪点火失败概率: 0,
     }
   };
   const beforeOptimized = () => Object.values(CHART_DATA.beforeOptimized);
@@ -277,8 +281,6 @@
 
   const setFormData = (k, v) => {
     FORM_DATA[k] = v;
-    drawBarChart();
-    refreshResultTable();
   };
 
   const refreshResultTable = () => {
@@ -300,6 +302,10 @@
     $('#td4-after-压裂施工周期').text(CHART_DATA.afterOptimized.field_压裂施工周期);
     $('#td4-after-桥塞遇阻或提前坐封概率').text(CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率);
     $('#td4-after-射孔枪点火失败概率').text(CHART_DATA.afterOptimized.field_射孔枪点火失败概率);
+    $('#td3-段数减少').text(CHART_DATA.field_段数减少);
+    $('#td3-费用减少').text(CHART_DATA.field_费用减少);
+    $('#td3-施工时间减少').text(CHART_DATA.field_施工时间减少);
+    $('#td3-桥射联作风险降低').text(CHART_DATA.field_桥射联作风险降低);
     drawBarChart()
   };
 
