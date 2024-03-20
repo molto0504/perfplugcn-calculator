@@ -58,7 +58,7 @@
           <td><input id="form-data-混砂车费用-N-1" name="混砂车费用-值" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="0.6"></td>
           <td><input id="form-data-混砂车费用-N-2" name="混砂车费用-费用" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
-                     placeholder="请输入" value="21"></td>
+                     placeholder="请输入" value="1"></td>
         </tr>
         <tr>
           <td>仪表车</td>
@@ -308,14 +308,15 @@
     CHART_DATA.field_费用减少 = getRadN();
     CHART_DATA.field_施工时间减少 = getRadN();
     CHART_DATA.field_桥射联作风险降低 = getRadN();
-    CHART_DATA.beforeOptimized.field_压裂费用 = getRadN();
+    const _单段压裂费用 = (FORM_DATA.field_压裂车费用_N_1 * FORM_DATA.field_压裂车费用_N_2) + (FORM_DATA.field_混砂车费用_N_1 * FORM_DATA.field_混砂车费用_N_2) + (FORM_DATA.field_仪表车费用_N_1)
+    CHART_DATA.beforeOptimized.field_压裂费用 = Math.round(_单段压裂费用 * FORM_DATA.field_原设计中的压裂段数);
     CHART_DATA.beforeOptimized.field_桥射联作费用= getRadN();
     CHART_DATA.beforeOptimized.field_连油钻塞费用= getRadN();
     CHART_DATA.beforeOptimized.field_桥塞费用= getRadN();
     CHART_DATA.beforeOptimized.field_压裂施工周期= getRadN();
     CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率= getRadN();
     CHART_DATA.beforeOptimized.field_射孔枪点火失败概率= getRadN();
-    CHART_DATA.afterOptimized.field_压裂费用 = getRadN();
+    CHART_DATA.afterOptimized.field_压裂费用 = Math.round(_单段压裂费用 * FORM_DATA.field_合并缩减_优化后的压裂段数);
     CHART_DATA.afterOptimized.field_桥射联作费用= getRadN();
     CHART_DATA.afterOptimized.field_连油钻塞费用= getRadN();
     CHART_DATA.afterOptimized.field_桥塞费用= getRadN();
