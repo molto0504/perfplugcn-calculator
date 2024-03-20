@@ -137,13 +137,13 @@
     <thead>
       <th style="width: 180px"></th>
       <th style="width: 150px">压裂段数</th>
-      <th style="width: 150px">压裂费用(万元)</th>
-      <th style="width: 140px">桥射联作费用(万元)</th>
-      <th style="width: 140px">连油钻塞费用(万年)</th>
-      <th style="width: 150px">桥塞费用(万元)</th>
-      <th style="width: 140px">压裂施工周期(万元)</th>
-      <th style="width: 160px">桥塞遇阻,提前坐封概率</th>
-      <th>射孔枪点火失败概率</th>
+      <th style="width: 150px">压裂费用</th>
+      <th style="width: 140px">桥射联作费用</th>
+      <th style="width: 140px">连油钻塞费用</th>
+      <th style="width: 150px">桥塞费用</th>
+      <th style="width: 130px">压裂施工周期</th>
+      <th style="width: 170px">每次异常事件发生概率-桥塞遇阻或提前坐封概率</th>
+      <th>每次异常事件发生概率-射孔枪点火失败</th>
     </thead>
     <tbody>
     <tr>
@@ -178,6 +178,20 @@
 <script>
   const showMsgOk = (text) => (new Notyf({position: {x:'right',y:'top'}})).success(text);
   const showMsgErr = (text) => (new Notyf({position: {x:'right',y:'top'}})).error(text);
+  const FORM_DATA = {
+    field_原设计中的压裂段数: 0,
+    field_合并缩减_优化后的压裂段数: 0,
+    field_压裂车费用: 0,
+    field_混砂车费用: 0,
+    field_仪表车费用: 0,
+    field_桥射联作费用: 0,
+    field_连油钻塞费用: 0,
+    field_桥塞费用: 0,
+    field_压裂施工速度: 0,
+    field_桥射联作平均耗时: 0,
+    field_桥塞遇阻或提前坐封概率: 0,
+    field_射孔枪点火失败概率: 0,
+  };
   const CHART_DATA = {
     beforeOptimized: {
       field_压裂段数: 25,
@@ -200,8 +214,17 @@
       field_射孔枪点火失败概率: 11
     }
   };
-  const beforeOptimized = () => Object.values(CHART_DATA.beforeOptimized)
-  const afterOptimized = () => Object.values(CHART_DATA.afterOptimized)
+  const beforeOptimized = () => Object.values(CHART_DATA.beforeOptimized);
+  const afterOptimized = () => Object.values(CHART_DATA.afterOptimized);
+
+  const setFormData = (k, v) => {
+    FORM_DATA[k] = v;
+    drawBarChart();
+    refreshResultTable();
+  };
+
+  const refreshResultTable = () => {
+  };
 
   const drawBarChart = () => {
     const cht = echarts.init(document.getElementById('calculatorPie'));
