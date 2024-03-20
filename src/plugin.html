@@ -324,10 +324,12 @@
     CHART_DATA.beforeOptimized.field_桥塞费用 = Math.round(FORM_DATA.field_桥塞费用_N_1 * (FORM_DATA.field_原设计中的压裂段数 - 1));
     CHART_DATA.afterOptimized.field_桥塞费用 = Math.round(FORM_DATA.field_桥塞费用_N_1 * (FORM_DATA.field_合并缩减_优化后的压裂段数 - 1));
 
-    CHART_DATA.beforeOptimized.field_压裂施工周期 = getRadN();
+    const _原周期 = FORM_DATA.field_原设计中的压裂段数 / FORM_DATA.field_压裂施工速度_N_1;
+    CHART_DATA.beforeOptimized.field_压裂施工周期 = _原周期.toFixed(1);
+    CHART_DATA.afterOptimized.field_压裂施工周期= (_原周期 - (FORM_DATA.field_桥射联作平均耗时_N_1 / 24) * (FORM_DATA.field_原设计中的压裂段数 - FORM_DATA.field_合并缩减_优化后的压裂段数)).toFixed(1)
+
     CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率 = getRadN();
     CHART_DATA.beforeOptimized.field_射孔枪点火失败概率 = getRadN();
-    CHART_DATA.afterOptimized.field_压裂施工周期= getRadN();
     CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率= getRadN();
     CHART_DATA.afterOptimized.field_射孔枪点火失败概率= getRadN();
     // LOAD TABLE
