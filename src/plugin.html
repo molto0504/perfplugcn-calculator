@@ -178,6 +178,30 @@
 <script>
   const showMsgOk = (text) => (new Notyf({position: {x:'right',y:'top'}})).success(text);
   const showMsgErr = (text) => (new Notyf({position: {x:'right',y:'top'}})).error(text);
+  const CHART_DATA = {
+    before_optimized: {
+      field_压裂段数: 25,
+      field_压裂费用: 593,
+      field_桥射联作费用: 192,
+      field_连油钻塞费用: 74,
+      field_桥塞费用: 26,
+      field_压裂施工周期: 10.0,
+      field_桥塞遇阻提前坐封概率: 21,
+      field_射孔枪点火失败概率: 21
+    },
+    after_optimized: {
+      field_压裂段数: 13,
+      field_压裂费用: 308,
+      field_桥射联作费用: 96,
+      field_连油钻塞费用: 37,
+      field_桥塞费用: 13,
+      field_压裂施工周期: 8.5,
+      field_桥塞遇阻提前坐封概率: 11,
+      field_射孔枪点火失败概率: 11
+    }
+  };
+  const beforeOptimized = () => Object.values(CHART_DATA.before_optimized)
+  const afterOptimized = () => Object.values(CHART_DATA.before_optimized)
 
   const drawBarChart = () => {
     const cht = echarts.init(document.getElementById('calculatorPie'));
@@ -202,7 +226,7 @@
         {
           name: '优化段数前(常规压裂)',
           type: 'bar',
-          data: [25, 593, 192, 74, 26, 10, 21, 21],
+          data: beforeOptimized(),
           barGap: '5%',
           barWidth: '25%',
           itemStyle: {color: '#747474'},
@@ -210,7 +234,7 @@
         {
           name: '优化段数后(零桥塞压裂TM)',
           type: 'bar',
-          data: [13, 308, 96, 37, 13, 8.5, 11, 11],
+          data: afterOptimized(),
           barGap: '5%',
           barWidth: '25%',
           itemStyle: {color: '#0057a7'},
