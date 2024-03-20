@@ -328,10 +328,11 @@
     CHART_DATA.beforeOptimized.field_压裂施工周期 = _原周期.toFixed(1);
     CHART_DATA.afterOptimized.field_压裂施工周期= (_原周期 - (FORM_DATA.field_桥射联作平均耗时_N_1 / 24) * (FORM_DATA.field_原设计中的压裂段数 - FORM_DATA.field_合并缩减_优化后的压裂段数)).toFixed(1)
 
-    CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率 = getRadN();
-    CHART_DATA.beforeOptimized.field_射孔枪点火失败概率 = getRadN();
-    CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率= getRadN();
-    CHART_DATA.afterOptimized.field_射孔枪点火失败概率= getRadN();
+    CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1)) * 100);
+    CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1)) * 100);
+
+    CHART_DATA.beforeOptimized.field_射孔枪点火失败概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1)) * 100);
+    CHART_DATA.afterOptimized.field_射孔枪点火失败概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1)) * 100);
     // LOAD TABLE
     $('#td4-before-压裂段数').text(CHART_DATA.beforeOptimized.field_压裂段数);
     $('#td4-before-压裂费用').text(CHART_DATA.beforeOptimized.field_压裂费用);
