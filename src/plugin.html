@@ -1,170 +1,174 @@
-<div style="width: 1350px; margin-left: auto; margin-right: auto; margin-bottom: 0; padding-bottom: 0">
+<div id="capture" style="width: 1350px; margin-left: auto; margin-right: auto; margin-bottom: 0; padding-bottom: 0">
+  <div style="width: 1350px; margin-left: auto; margin-right: auto; margin-bottom: 0; padding-bottom: 0">
 
-  <div id="table-1" style="width: 1350px; margin: 0; padding: 0">
-    <table style="font-size: 13px" class="table is-bordered has-text-centered">
-      <thead class="has-text-centered">
-      <th class="has-text-centered">优化段数前(常规压裂)</th>
-      <th class="has-text-centered">优化段数后(零桥塞压裂TM)</th>
+    <div id="table-1" style="width: 1350px; margin: 0; padding: 0">
+                                                                    <table style="font-size: 13px" class="table is-bordered has-text-centered">
+                                                                    <thead class="has-text-centered">
+                                                                    <th class="has-text-centered">优化段数前(常规压裂)</th>
+                                                                    <th class="has-text-centered">优化段数后(零桥塞压裂TM)</th>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="25"></td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="13"></td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                    </table>
+                                                                    </div>
+
+    <div id="control-panel" style="width: 1350px; margin: 0; padding: 0">
+                                                                          <div class="columns" style="margin: 0; padding: 0 0 8px 0">
+                                                                          <button id="btn-setting" style="margin-right: 8px" class="column button button-vertical-center is-link">更多参数设置</button>
+                                                                          <button id="btn-calculate" style="margin-right: 8px" class="column button button-vertical-center is-link">计算</button>
+                                                                          <button id="btn-capture" style="margin-right: 8px" class="column button button-vertical-center is-link">截图</button>
+                                                                          <button id="btn-about-us" class="column button button-vertical-center is-link">联系我们</button>
+                                                                          </div>
+                                                                          </div>
+
+    <div id="table-2" style="width: 1350px; margin: 0; padding: 0">
+                                                                    <table style="font-size: 13px" class="table is-bordered has-text-centered">
+                                                                    <thead class="has-text-centered">
+                                                                    <th class="has-text-centered">item</th>
+                                                                    <th class="has-text-centered">单价</th>
+                                                                    <th class="has-text-centered">单位</th>
+                                                                    <th class="has-text-centered">数量</th>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                    <td>压裂车费用</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="0.95"></td>
+                                                                    <td>万元/台/段</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="24"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td>混砂车费用</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="0.6"></td>
+                                                                    <td>万元/台/段</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="21"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td>仪表车</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="0.3"></td>
+                                                                    <td>万元/台/段</td>
+                                                                    <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td>桥射联作费用</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="8"></td>
+                                                                    <td>万元/段</td>
+                                                                    <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td>连油钻塞费用</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="3.1"></td>
+                                                                    <td>万元/个</td>
+                                                                    <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td>桥塞费用</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="1.1"></td>
+                                                                    <td>万元/个</td>
+                                                                    <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td>压裂施工速度</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="2.5"></td>
+                                                                    <td>段/天</td>
+                                                                    <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td>桥射联作耗时</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="3"></td>
+                                                                    <td>小时/段</td>
+                                                                    <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td>桥塞遇阻,提前坐封概率</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="1"></td>
+                                                                    <td>%/趟</td>
+                                                                    <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td>射孔枪点火失败概率</td>
+                                                                    <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="1"></td>
+                                                                    <td>%/趟</td>
+                                                                    <td></td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                    </table>
+                                                                    </div>
+
+    <div id="table-3" style="width: 1350px; margin: 0; padding: 0">
+                                                                    <table style="font-size: 13px" class="table is-bordered has-text-centered">
+                                                                    <thead class="has-text-centered">
+                                                                    <th class="has-text-centered">段数减少</th>
+                                                                    <th class="has-text-centered">费用减少</th>
+                                                                    <th class="has-text-centered">施工时间减少</th>
+                                                                    <th class="has-text-centered">桥射联作风险降低(遇阻,提前坐封,点火失败)</th>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                    <td>0</td>
+                                                                    <td>0</td>
+                                                                    <td>0</td>
+                                                                    <td>0</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                    </table>
+                                                                    </div>
+
+  </div>
+
+  <div style="width: 1350px; margin-left: auto; margin-right: auto; margin-top: 0; padding-top: 0">
+    <div id="calculatorPie" style="height: 450px;width: 1300px; margin-left: 50px; margin-bottom: 0; padding-bottom: 0; margin-top: 0; padding-top: 0" />
+  </div>
+  <div style="width: 1350px; margin-left: auto; margin-right: auto; margin-top: 0; padding-top: 0">
+    <table class="table is-bordered" style="font-size: 13px; margin-top: 0; padding-top: 0" >
+      <thead>
+        <th style="width: 180px"></th>
+        <th style="width: 150px">压裂段数</th>
+        <th style="width: 150px">压裂费用</th>
+        <th style="width: 140px">桥射联作费用</th>
+        <th style="width: 140px">连油钻塞费用</th>
+        <th style="width: 150px">桥塞费用</th>
+        <th style="width: 130px">压裂施工周期</th>
+        <th style="width: 170px">每次异常事件发生概率-桥塞遇阻或提前坐封</th>
+        <th>每次异常事件发生概率-射孔枪点火失败</th>
       </thead>
       <tbody>
       <tr>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="25"></td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="13"></td>
+        <td>优化段数前(常规压裂)</td>
+        <td id="td2-before-压裂段数">25</td>
+        <td id="td2-before-压裂费用">593</td>
+        <td id="td2-before-桥射联作费用">192</td>
+        <td id="td2-before-连油钻塞费用">74</td>
+        <td id="td2-before-桥塞费用">26</td>
+        <td id="td2-before-压裂施工周期">10.0</td>
+        <td id="td2-before-桥塞遇阻或提前坐封概率">21</td>
+        <td id="td2-before-射孔枪点火失败概率">21</td>
+      </tr>
+      <tr>
+        <td>优化段数后(零桥塞压裂TM)</td>
+        <td id="td2-after-压裂段数">13</td>
+        <td id="td2-after-压裂费用">308</td>
+        <td id="td2-after-桥射联作费用">96</td>
+        <td id="td2-after-连油钻塞费用">37</td>
+        <td id="td2-after-桥塞费用">13</td>
+        <td id="td2-after-压裂施工周期">8.5</td>
+        <td id="td2-after-桥塞遇阻或提前坐封概率">11</td>
+        <td id="td2-after-射孔枪点火失败概率">11</td>
       </tr>
       </tbody>
     </table>
   </div>
-
-  <div id="control-panel" style="width: 1350px; margin: 0; padding: 0">
-    <div class="columns" style="margin: 0; padding: 0 0 8px 0">
-      <button id="btn-setting" style="margin-right: 8px" class="column button button-vertical-center is-link">更多参数设置</button>
-      <button id="btn-calculate" style="margin-right: 8px" class="column button button-vertical-center is-link">计算</button>
-      <button id="btn-capture" style="margin-right: 8px" class="column button button-vertical-center is-link">截图</button>
-      <button id="btn-about-us" class="column button button-vertical-center is-link">联系我们</button>
-    </div>
-  </div>
-
-  <div id="table-2" style="width: 1350px; margin: 0; padding: 0">
-    <table style="font-size: 13px" class="table is-bordered has-text-centered">
-      <thead class="has-text-centered">
-      <th class="has-text-centered">item</th>
-      <th class="has-text-centered">单价</th>
-      <th class="has-text-centered">单位</th>
-      <th class="has-text-centered">数量</th>
-      </thead>
-      <tbody>
-      <tr>
-        <td>压裂车费用</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="0.95"></td>
-        <td>万元/台/段</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="24"></td>
-      </tr>
-      <tr>
-        <td>混砂车费用</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="0.6"></td>
-        <td>万元/台/段</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="21"></td>
-      </tr>
-      <tr>
-        <td>仪表车</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="0.3"></td>
-        <td>万元/台/段</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>桥射联作费用</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="8"></td>
-        <td>万元/段</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>连油钻塞费用</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="3.1"></td>
-        <td>万元/个</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>桥塞费用</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="1.1"></td>
-        <td>万元/个</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>压裂施工速度</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="2.5"></td>
-        <td>段/天</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>桥射联作耗时</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="3"></td>
-        <td>小时/段</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>桥塞遇阻,提前坐封概率</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="1"></td>
-        <td>%/趟</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>射孔枪点火失败概率</td>
-        <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="1"></td>
-        <td>%/趟</td>
-        <td></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div id="table-3" style="width: 1350px; margin: 0; padding: 0">
-    <table style="font-size: 13px" class="table is-bordered has-text-centered">
-      <thead class="has-text-centered">
-      <th class="has-text-centered">段数减少</th>
-      <th class="has-text-centered">费用减少</th>
-      <th class="has-text-centered">施工时间减少</th>
-      <th class="has-text-centered">桥射联作风险降低(遇阻,提前坐封,点火失败)</th>
-      </thead>
-      <tbody>
-      <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-</div>
-
-<div style="width: 1350px; margin-left: auto; margin-right: auto; margin-top: 0; padding-top: 0">
-  <div id="calculatorPie" style="height: 450px;width: 1300px; margin-left: 50px; margin-bottom: 0; padding-bottom: 0; margin-top: 0; padding-top: 0" />
-</div>
-<div style="width: 1350px; margin-left: auto; margin-right: auto; margin-top: 0; padding-top: 0">
-  <table class="table is-bordered" style="font-size: 13px; margin-top: 0; padding-top: 0" >
-    <thead>
-      <th style="width: 180px"></th>
-      <th style="width: 150px">压裂段数</th>
-      <th style="width: 150px">压裂费用</th>
-      <th style="width: 140px">桥射联作费用</th>
-      <th style="width: 140px">连油钻塞费用</th>
-      <th style="width: 150px">桥塞费用</th>
-      <th style="width: 130px">压裂施工周期</th>
-      <th style="width: 170px">每次异常事件发生概率-桥塞遇阻或提前坐封</th>
-      <th>每次异常事件发生概率-射孔枪点火失败</th>
-    </thead>
-    <tbody>
-    <tr>
-      <td>优化段数前(常规压裂)</td>
-      <td id="td2-before-压裂段数">25</td>
-      <td id="td2-before-压裂费用">593</td>
-      <td id="td2-before-桥射联作费用">192</td>
-      <td id="td2-before-连油钻塞费用">74</td>
-      <td id="td2-before-桥塞费用">26</td>
-      <td id="td2-before-压裂施工周期">10.0</td>
-      <td id="td2-before-桥塞遇阻或提前坐封概率">21</td>
-      <td id="td2-before-射孔枪点火失败概率">21</td>
-    </tr>
-    <tr>
-      <td>优化段数后(零桥塞压裂TM)</td>
-      <td id="td2-after-压裂段数">13</td>
-      <td id="td2-after-压裂费用">308</td>
-      <td id="td2-after-桥射联作费用">96</td>
-      <td id="td2-after-连油钻塞费用">37</td>
-      <td id="td2-after-桥塞费用">13</td>
-      <td id="td2-after-压裂施工周期">8.5</td>
-      <td id="td2-after-桥塞遇阻或提前坐封概率">11</td>
-      <td id="td2-after-射孔枪点火失败概率">11</td>
-    </tr>
-    </tbody>
-  </table>
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
 <script>
   const showMsgOk = (text) => (new Notyf({position: {x:'right',y:'top'}})).success(text);
   const showMsgErr = (text) => (new Notyf({position: {x:'right',y:'top'}})).error(text);
@@ -173,6 +177,22 @@
   );
   $("#btn-about-us").click(
       () => window.location.href = "contactuscn.html"
+  );
+  $("#btn-capture").click(
+      () => {
+        showMsgOk("正在生成截图请等待...");
+        html2canvas(document.querySelector("#capture")).then(canvas => {
+          var dataURL = canvas.toDataURL("image/png");
+          var data = atob(dataURL.substring("data:image/png;base64,".length)),
+              asArray = new Uint8Array(data.length);
+          for (var i = 0, len = data.length; i < len; ++i) {
+            asArray[i] = data.charCodeAt(i);
+          }
+          var blob = new Blob([asArray.buffer], {type: "image/png"});
+          saveAs(blob, "photo.png");
+          showMsgOk("截图已保存");
+        });
+      }
   );
 
   const FORM_DATA = {
