@@ -10,11 +10,11 @@
         <tbody>
         <tr>
           <td>
-            <input id="form-data-原设计中的压裂段数" name="原设计中的压裂段数" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+            <input id="form-data-原设计中的压裂段数" name="原设计中的压裂段数" class="only-int input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                    placeholder="请输入" value="25">
           </td>
           <td>
-            <input id="form-data-合并缩减-优化后的压裂段数" name="合并缩减-优化后的压裂段数" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+            <input id="form-data-合并缩减-优化后的压裂段数" name="合并缩减-优化后的压裂段数" class="only-int input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                    placeholder="请输入" value="15">
           </td>
         </tr>
@@ -50,14 +50,14 @@
                    placeholder="请输入" value="0.95">
           </td>
           <td>
-            <input  id="form-data-压裂车费用-N-2" name="压裂车费用-数量" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="24">
+            <input  id="form-data-压裂车费用-N-2" name="压裂车费用-数量" class="only-int input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="24">
           </td>
         </tr>
         <tr>
           <td>混砂车费用</td>
           <td><input id="form-data-混砂车费用-N-1" name="混砂车费用-值" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="0.6"></td>
-          <td><input id="form-data-混砂车费用-N-2" name="混砂车费用-费用" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-混砂车费用-N-2" name="混砂车费用-费用" class="only-int input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="1"></td>
         </tr>
         <tr>
@@ -219,11 +219,14 @@
   $('.only-num').keyup(function () {
     this.value = this.value.replace(/[^0-9\.]/g,'');
   });
-  $('.only-num').change(function () {
+  $('.only-int').keyup(function () {
+    this.value = this.value.replace(/[^0-9]/g,'');
+  });
+  $('.input').change(function () {
     refreshResultTable();
     showMsgOk("计算结果已更新");
   });
-  $('.only-num').keypress(function(e) {
+  $('.input-num').keypress(function(e) {
     if(e.which == 13) {
       refreshResultTable();
     }
@@ -409,7 +412,7 @@
     align-items: center;
     justify-content: center;
   }
-  .only-num {
+  .input {
     animation-name: unset;
     animation-fill-mode: unset;
     animation-delay: unset;
