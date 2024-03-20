@@ -4,17 +4,17 @@
     <div id="table-1" style="width: 1350px; margin: 0; padding: 0">
       <table style="font-size: 13px" class="table is-bordered has-text-centered">
         <thead class="has-text-centered">
-        <th class="has-text-centered">优化段数前(常规压裂)</th>
-        <th class="has-text-centered">优化段数后(零桥塞压裂TM)</th>
+        <th class="has-text-centered">原设计中的压裂段数(常规压裂)</th>
+        <th class="has-text-centered">合并缩减/优化后的压裂段数("零"桥塞压裂TM)</th>
         </thead>
         <tbody>
         <tr>
           <td>
-            <input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+            <input id="form-data-原设计中的压裂段数" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                    placeholder="请输入" value="25">
           </td>
           <td>
-            <input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+            <input id="form-data-合并缩减-优化后的压裂段数" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                    placeholder="请输入" value="13">
           </td>
         </tr>
@@ -47,74 +47,74 @@
         <tr>
           <td>压裂车费用</td>
           <td>
-            <input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+            <input id="form-data-压裂车费用-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                    placeholder="请输入" value="0.95">
           </td>
           <td>万元/台/段</td>
           <td>
-            <input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="24">
+            <input  id="form-data-压裂车费用-N-2" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="24">
           </td>
         </tr>
         <tr>
           <td>混砂车费用</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-混砂车费用-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="0.6"></td>
           <td>万元/台/段</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-混砂车费用-N-2" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="21"></td>
         </tr>
         <tr>
           <td>仪表车</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-仪表车费用-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="0.3"></td>
           <td>万元/台/段</td>
           <td></td>
         </tr>
         <tr>
           <td>桥射联作费用</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-桥射联作费用-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="8"></td>
           <td>万元/段</td>
           <td></td>
         </tr>
         <tr>
           <td>连油钻塞费用</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-连油钻塞费用-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="3.1"></td>
           <td>万元/个</td>
           <td></td>
         </tr>
         <tr>
           <td>桥塞费用</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-桥塞费用-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="1.1"></td>
           <td>万元/个</td>
           <td></td>
         </tr>
         <tr>
           <td>压裂施工速度</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-压裂施工速度-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="2.5"></td>
           <td>段/天</td>
           <td></td>
         </tr>
         <tr>
           <td>桥射联作耗时</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-桥射联作平均耗时-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="3"></td>
           <td>小时/段</td>
           <td></td>
         </tr>
         <tr>
           <td>桥塞遇阻,提前坐封概率</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-桥塞遇阻或提前坐封概率-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="1"></td>
           <td>%/趟</td>
           <td></td>
         </tr>
         <tr>
           <td>射孔枪点火失败概率</td>
-          <td><input class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
+          <td><input id="form-data-射孔枪点火失败概率-N-1" class="input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="1"></td>
           <td>%/趟</td>
           <td></td>
@@ -222,7 +222,7 @@
   );
   $("#btn-calculate").click(
       () => {
-        // TODO
+        refreshResultTable()
       }
   );
 
@@ -234,21 +234,21 @@
     field_混砂车费用_N_1: 0.6,
     field_混砂车费用_N_2: 1,
     field_仪表车费用_N_1: 0.3,
-    field_仪表车费用_N_2: 1,
+    field_仪表车费用_N_2: 1, // static
     field_桥射联作费用_N_1: 8,
-    field_桥射联作费用_N_2: 1,
+    field_桥射联作费用_N_2: 1, // static
     field_连油钻塞费用_N_1: 3.1,
-    field_连油钻塞费用_N_2: 1,
+    field_连油钻塞费用_N_2: 1, // static
     field_桥塞费用_N_1: 1.1,
-    field_桥塞费用_N_2: 1,
+    field_桥塞费用_N_2: 1, // static
     field_压裂施工速度_N_1: 2.5,
-    field_压裂施工速度_N_2: 1,
+    field_压裂施工速度_N_2: 1, // static
     field_桥射联作平均耗时_N_1: 4,
-    field_桥射联作平均耗时_N_2: 1,
+    field_桥射联作平均耗时_N_2: 1, // static
     field_桥塞遇阻或提前坐封概率_N_1: 1,
-    field_桥塞遇阻或提前坐封概率_N_2: 1,
+    field_桥塞遇阻或提前坐封概率_N_2: 1, // static
     field_射孔枪点火失败概率_N_1: 0.1,
-    field_射孔枪点火失败概率_N_2: 1,
+    field_射孔枪点火失败概率_N_2: 1, // static
   };
   const CHART_DATA = {
     field_段数减少: 0,
@@ -284,8 +284,26 @@
   };
 
   const refreshResultTable = () => {
+    // TODO: validate
+    // LOAD FORM DATA
+    FORM_DATA.field_原设计中的压裂段数 = $('#form-data-原设计中的压裂段数').val();
+    FORM_DATA.field_合并缩减_优化后的压裂段数 = $('#form-data-合并缩减-优化后的压裂段数').val();
+    FORM_DATA.field_压裂车费用_N_1 = $('#form-data-压裂车费用-N-1').val();
+    FORM_DATA.field_压裂车费用_N_2 = $('#form-data-压裂车费用-N-2').val();
+    FORM_DATA.field_混砂车费用_N_1 = $('#form-data-混砂车费用-N-1').val();
+    FORM_DATA.field_混砂车费用_N_2 = $('#form-data-混砂车费用-N-2').val();
+    FORM_DATA.field_仪表车费用_N_1 = $('#form-data-仪表车费用-N-1').val();
+    FORM_DATA.field_桥射联作费用_N_1 = $('#form-data-桥射联作费用-N-1').val();
+    FORM_DATA.field_连油钻塞费用_N_1 = $('#form-data-连油钻塞费用-N-1').val();
+    FORM_DATA.field_桥塞费用_N_1 = $('#form-data-桥塞费用-N-1').val();
+    FORM_DATA.field_压裂施工速度_N_1 = $('#form-data-压裂施工速度-N-1').val();
+    FORM_DATA.field_桥射联作平均耗时_N_1 = $('#form-data-桥射联作平均耗时-N-1').val();
+    FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 = $('#form-data-桥塞遇阻或提前坐封概率-N-1').val();
+    FORM_DATA.field_射孔枪点火失败概率_N_1 = $('#form-data-射孔枪点火失败概率-N-1').val();
+    // LOAD CHART DATA
     CHART_DATA.beforeOptimized.field_压裂段数 = FORM_DATA.field_原设计中的压裂段数;
     CHART_DATA.afterOptimized.field_压裂段数 = FORM_DATA.field_合并缩减_优化后的压裂段数;
+    // LOAD TABLE
     $('#td4-before-压裂段数').text(CHART_DATA.beforeOptimized.field_压裂段数);
     $('#td4-before-压裂费用').text(CHART_DATA.beforeOptimized.field_压裂费用);
     $('#td4-before-桥射联作费用').text(CHART_DATA.beforeOptimized.field_桥射联作费用);
