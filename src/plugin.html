@@ -223,7 +223,7 @@
   $("#btn-calculate").click(
       () => {
         refreshResultTable();
-        showMsgOk("数据已刷新");
+        showMsgOk("计算结果已更新");
       }
   );
   $('.only-num').keyup(function () {
@@ -284,7 +284,6 @@
   const afterOptimized = () => Object.values(CHART_DATA.afterOptimized);
 
   const refreshResultTable = () => {
-    // TODO: validate
     // LOAD FORM DATA
     FORM_DATA.field_原设计中的压裂段数 = Number($('#form-data-原设计中的压裂段数').val());
     FORM_DATA.field_合并缩减_优化后的压裂段数 = Number($('#form-data-合并缩减-优化后的压裂段数').val());
@@ -303,6 +302,21 @@
     // LOAD CHART DATA
     CHART_DATA.beforeOptimized.field_压裂段数 = FORM_DATA.field_原设计中的压裂段数;
     CHART_DATA.afterOptimized.field_压裂段数 = FORM_DATA.field_合并缩减_优化后的压裂段数;
+    // TODO: replace mock data
+    CHART_DATA.beforeOptimized.field_压裂费用 = Math.random() * 100;
+    CHART_DATA.beforeOptimized.field_桥射联作费用= Math.random() * 100;
+    CHART_DATA.beforeOptimized.field_连油钻塞费用= Math.random() * 100;
+    CHART_DATA.beforeOptimized.field_桥塞费用= Math.random() * 100;
+    CHART_DATA.beforeOptimized.field_压裂施工周期= Math.random() * 100;
+    CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率= Math.random() * 100;
+    CHART_DATA.beforeOptimized.field_射孔枪点火失败概率= Math.random() * 100;
+    CHART_DATA.afterOptimized.field_压裂费用 = Math.random() * 100;
+    CHART_DATA.afterOptimized.field_桥射联作费用= Math.random() * 100;
+    CHART_DATA.afterOptimized.field_连油钻塞费用= Math.random() * 100;
+    CHART_DATA.afterOptimized.field_桥塞费用= Math.random() * 100;
+    CHART_DATA.afterOptimized.field_压裂施工周期= Math.random() * 100;
+    CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率= Math.random() * 100;
+    CHART_DATA.afterOptimized.field_射孔枪点火失败概率= Math.random() * 100;
     // LOAD TABLE
     $('#td4-before-压裂段数').text(CHART_DATA.beforeOptimized.field_压裂段数);
     $('#td4-before-压裂费用').text(CHART_DATA.beforeOptimized.field_压裂费用);
