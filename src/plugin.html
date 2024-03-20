@@ -221,6 +221,7 @@
   });
   $('.only-num').change(function () {
     refreshResultTable();
+    showMsgOk("计算结果已更新");
   });
   $('.only-num').keypress(function(e) {
     if(e.which == 13) {
@@ -304,6 +305,10 @@
     CHART_DATA.afterOptimized.field_压裂段数 = FORM_DATA.field_合并缩减_优化后的压裂段数;
     // TODO: replace mock data
     const getRadN = () => { return Math.floor(Math.random() * 100) + 1};
+    CHART_DATA.field_段数减少 = getRadN();
+    CHART_DATA.field_费用减少 = getRadN();
+    CHART_DATA.field_施工时间减少 = getRadN();
+    CHART_DATA.field_桥射联作风险降低 = getRadN();
     CHART_DATA.beforeOptimized.field_压裂费用 = getRadN();
     CHART_DATA.beforeOptimized.field_桥射联作费用= getRadN();
     CHART_DATA.beforeOptimized.field_连油钻塞费用= getRadN();
