@@ -179,7 +179,7 @@
   const showMsgOk = (text) => (new Notyf({position: {x:'right',y:'top'}})).success(text);
   const showMsgErr = (text) => (new Notyf({position: {x:'right',y:'top'}})).error(text);
   const CHART_DATA = {
-    before_optimized: {
+    beforeOptimized: {
       field_压裂段数: 25,
       field_压裂费用: 593,
       field_桥射联作费用: 192,
@@ -189,7 +189,7 @@
       field_桥塞遇阻提前坐封概率: 21,
       field_射孔枪点火失败概率: 21
     },
-    after_optimized: {
+    afterOptimized: {
       field_压裂段数: 13,
       field_压裂费用: 308,
       field_桥射联作费用: 96,
@@ -200,8 +200,8 @@
       field_射孔枪点火失败概率: 11
     }
   };
-  const beforeOptimized = () => Object.values(CHART_DATA.before_optimized)
-  const afterOptimized = () => Object.values(CHART_DATA.before_optimized)
+  const beforeOptimized = () => Object.values(CHART_DATA.beforeOptimized)
+  const afterOptimized = () => Object.values(CHART_DATA.afterOptimized)
 
   const drawBarChart = () => {
     const cht = echarts.init(document.getElementById('calculatorPie'));
