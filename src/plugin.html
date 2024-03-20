@@ -93,7 +93,7 @@
         <tr>
           <td>桥射联作耗时</td>
           <td><input id="form-data-桥射联作平均耗时-N-1" name="桥射联作平均耗时" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
-                     placeholder="请输入" value="3"></td>
+                     placeholder="请输入" value="4"></td>
           <td></td>
         </tr>
         <tr>
@@ -105,7 +105,7 @@
         <tr>
           <td>射孔枪点火失败概率</td>
           <td><input id="form-data-射孔枪点火失败概率-N-1" name="射孔枪点火失败概率" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
-                     placeholder="请输入" value="1"></td>
+                     placeholder="请输入" value="0.1"></td>
           <td></td>
         </tr>
         </tbody>
@@ -234,27 +234,27 @@
 
 
   const FORM_DATA = {
-    field_原设计中的压裂段数: 25,
-    field_合并缩减_优化后的压裂段数: 15,
-    field_压裂车费用_N_1: 0.95,
-    field_压裂车费用_N_2: 24,
-    field_混砂车费用_N_1: 0.6,
-    field_混砂车费用_N_2: 1,
-    field_仪表车费用_N_1: 0.3,
+    field_原设计中的压裂段数: 0,
+    field_合并缩减_优化后的压裂段数: 0,
+    field_压裂车费用_N_1: 0,
+    field_压裂车费用_N_2: 0,
+    field_混砂车费用_N_1: 0,
+    field_混砂车费用_N_2: 0,
+    field_仪表车费用_N_1: 0,
     field_仪表车费用_N_2: 1, // static
-    field_桥射联作费用_N_1: 8,
+    field_桥射联作费用_N_1: 0,
     field_桥射联作费用_N_2: 1, // static
-    field_连油钻塞费用_N_1: 3.1,
+    field_连油钻塞费用_N_1: 0,
     field_连油钻塞费用_N_2: 1, // static
-    field_桥塞费用_N_1: 1.1,
+    field_桥塞费用_N_1: 0,
     field_桥塞费用_N_2: 1, // static
-    field_压裂施工速度_N_1: 2.5,
+    field_压裂施工速度_N_1: 0,
     field_压裂施工速度_N_2: 1, // static
-    field_桥射联作平均耗时_N_1: 4,
+    field_桥射联作平均耗时_N_1: 0,
     field_桥射联作平均耗时_N_2: 1, // static
-    field_桥塞遇阻或提前坐封概率_N_1: 1,
+    field_桥塞遇阻或提前坐封概率_N_1: 0,
     field_桥塞遇阻或提前坐封概率_N_2: 1, // static
-    field_射孔枪点火失败概率_N_1: 0.1,
+    field_射孔枪点火失败概率_N_1: 0,
     field_射孔枪点火失败概率_N_2: 1, // static
   };
   const CHART_DATA = {
@@ -305,12 +305,7 @@
     // LOAD CHART DATA
     CHART_DATA.beforeOptimized.field_压裂段数 = FORM_DATA.field_原设计中的压裂段数;
     CHART_DATA.afterOptimized.field_压裂段数 = FORM_DATA.field_合并缩减_优化后的压裂段数;
-    // TODO: replace mock data
-    const getRadN = () => { return Math.floor(Math.random() * 100) + 1};
-    CHART_DATA.field_段数减少 = FORM_DATA.field_原设计中的压裂段数 - FORM_DATA.field_合并缩减_优化后的压裂段数;
-    CHART_DATA.field_费用减少 = getRadN();
-    CHART_DATA.field_施工时间减少 = getRadN();
-    CHART_DATA.field_桥射联作风险降低 = getRadN();
+
     const _单段压裂费用 = (FORM_DATA.field_压裂车费用_N_1 * FORM_DATA.field_压裂车费用_N_2) + (FORM_DATA.field_混砂车费用_N_1 * FORM_DATA.field_混砂车费用_N_2) + (FORM_DATA.field_仪表车费用_N_1)
     CHART_DATA.beforeOptimized.field_压裂费用 = Math.round(_单段压裂费用 * FORM_DATA.field_原设计中的压裂段数);
     CHART_DATA.afterOptimized.field_压裂费用 = Math.round(_单段压裂费用 * FORM_DATA.field_合并缩减_优化后的压裂段数);
@@ -326,13 +321,24 @@
 
     const _原周期 = FORM_DATA.field_原设计中的压裂段数 / FORM_DATA.field_压裂施工速度_N_1;
     CHART_DATA.beforeOptimized.field_压裂施工周期 = _原周期.toFixed(1);
-    CHART_DATA.afterOptimized.field_压裂施工周期= (_原周期 - (FORM_DATA.field_桥射联作平均耗时_N_1 / 24) * (FORM_DATA.field_原设计中的压裂段数 - FORM_DATA.field_合并缩减_优化后的压裂段数)).toFixed(1)
+    CHART_DATA.afterOptimized.field_压裂施工周期 = (_原周期 - (FORM_DATA.field_桥射联作平均耗时_N_1 / 24) * (FORM_DATA.field_原设计中的压裂段数 - FORM_DATA.field_合并缩减_优化后的压裂段数)).toFixed(1)
 
-    CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1)) * 100);
-    CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1)) * 100);
+    CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1)) * 100); //E9
+    CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1)) * 100); //F9
 
-    CHART_DATA.beforeOptimized.field_射孔枪点火失败概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1)) * 100);
-    CHART_DATA.afterOptimized.field_射孔枪点火失败概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1)) * 100);
+    CHART_DATA.beforeOptimized.field_射孔枪点火失败概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1)) * 100); //E10
+    CHART_DATA.afterOptimized.field_射孔枪点火失败概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1)) * 100); //F10
+
+    // TODO: replace mock data
+    const getRadN = () => { return Math.floor(Math.random() * 100) + 1};
+    CHART_DATA.field_段数减少 = FORM_DATA.field_原设计中的压裂段数 - FORM_DATA.field_合并缩减_优化后的压裂段数;
+    const _原费用 = CHART_DATA.beforeOptimized.field_压裂费用 + CHART_DATA.beforeOptimized.field_桥射联作费用 + CHART_DATA.beforeOptimized.field_连油钻塞费用 + CHART_DATA.beforeOptimized.field_桥塞费用;
+    const _现费用 =  CHART_DATA.afterOptimized.field_压裂费用 + CHART_DATA.afterOptimized.field_桥射联作费用 + CHART_DATA.afterOptimized.field_连油钻塞费用 + CHART_DATA.afterOptimized.field_桥塞费用;
+    CHART_DATA.field_费用减少 = _原费用 - _现费用;
+    CHART_DATA.field_施工时间减少 = (CHART_DATA.beforeOptimized.field_压裂施工周期 - CHART_DATA.afterOptimized.field_压裂施工周期).toFixed(1);
+    const _原风险 = 100 - ((100-CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率) * (100-CHART_DATA.beforeOptimized.field_射孔枪点火失败概率));
+    const _现风险 = 100 - ((100-CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率) * (100-CHART_DATA.afterOptimized.field_射孔枪点火失败概率));
+    CHART_DATA.field_桥射联作风险降低 =  ((_原风险 - _现风险) / 100).toFixed(2);
     // LOAD TABLE
     $('#td4-before-压裂段数').text(CHART_DATA.beforeOptimized.field_压裂段数);
     $('#td4-before-压裂费用').text(CHART_DATA.beforeOptimized.field_压裂费用);
@@ -350,10 +356,10 @@
     $('#td4-after-压裂施工周期').text(CHART_DATA.afterOptimized.field_压裂施工周期);
     $('#td4-after-桥塞遇阻或提前坐封概率').text(CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率);
     $('#td4-after-射孔枪点火失败概率').text(CHART_DATA.afterOptimized.field_射孔枪点火失败概率);
-    $('#td3-段数减少').text(CHART_DATA.field_段数减少);
-    $('#td3-费用减少').text(CHART_DATA.field_费用减少);
-    $('#td3-施工时间减少').text(CHART_DATA.field_施工时间减少);
-    $('#td3-桥射联作风险降低').text(CHART_DATA.field_桥射联作风险降低);
+    $('#td3-段数减少').text(`${CHART_DATA.field_段数减少}段`);
+    $('#td3-费用减少').text(`${CHART_DATA.field_费用减少}万元`);
+    $('#td3-施工时间减少').text(`${CHART_DATA.field_施工时间减少}天`);
+    $('#td3-桥射联作风险降低').text(`${CHART_DATA.field_桥射联作风险降低}%`);
     drawBarChart()
   };
 
