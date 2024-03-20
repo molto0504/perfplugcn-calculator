@@ -1,6 +1,6 @@
 <div style="width: 1350px; margin-left: auto; margin-right: auto; margin-bottom: 0; padding-bottom: 0">
 
-  <div style="width: 1350px; margin: 0; padding: 0">
+  <div id="table-1" style="width: 1350px; margin: 0; padding: 0">
     <table style="font-size: 13px" class="table is-bordered has-text-centered">
       <thead class="has-text-centered">
       <th class="has-text-centered">优化段数前(常规压裂)</th>
@@ -15,7 +15,16 @@
     </table>
   </div>
 
-  <div style="width: 1350px; margin: 0; padding: 0">
+  <div id="control-panel" style="width: 1350px; margin: 0; padding: 0">
+    <div class="columns" style="margin: 0; padding: 0 0 8px 0">
+      <button id="btn-setting" style="margin-right: 8px" class="column button button-vertical-center is-link">更多参数设置</button>
+      <button id="btn-calculate" style="margin-right: 8px" class="column button button-vertical-center is-link">计算</button>
+      <button id="btn-capture" style="margin-right: 8px" class="column button button-vertical-center is-link">截图</button>
+      <button id="btn-about-us" class="column button button-vertical-center is-link">联系我们</button>
+    </div>
+  </div>
+
+  <div id="table-2" style="width: 1350px; margin: 0; padding: 0">
     <table style="font-size: 13px" class="table is-bordered has-text-centered">
       <thead class="has-text-centered">
       <th class="has-text-centered">item</th>
@@ -88,7 +97,7 @@
     </table>
   </div>
 
-  <div style="width: 1350px; margin: 0; padding: 0">
+  <div id="table-3" style="width: 1350px; margin: 0; padding: 0">
     <table style="font-size: 13px" class="table is-bordered has-text-centered">
       <thead class="has-text-centered">
       <th class="has-text-centered">段数减少</th>
@@ -159,6 +168,10 @@
 <script>
   const showMsgOk = (text) => (new Notyf({position: {x:'right',y:'top'}})).success(text);
   const showMsgErr = (text) => (new Notyf({position: {x:'right',y:'top'}})).error(text);
+  $("#btn-setting").click(
+      () => $('#table-2').toggle()
+  );
+
   const FORM_DATA = {
     field_原设计中的压裂段数: 25,
     field_合并缩减_优化后的压裂段数: 15,
@@ -278,3 +291,10 @@
   };
   refreshResultTable()
 </script>
+<style>
+  .button-vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
