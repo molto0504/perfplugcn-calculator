@@ -15,7 +15,7 @@
           </td>
           <td>
             <input id="form-data-合并缩减-优化后的压裂段数" name="合并缩减-优化后的压裂段数" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
-                   placeholder="请输入" value="13">
+                   placeholder="请输入" value="15">
           </td>
         </tr>
         </tbody>
@@ -304,7 +304,7 @@
     CHART_DATA.afterOptimized.field_压裂段数 = FORM_DATA.field_合并缩减_优化后的压裂段数;
     // TODO: replace mock data
     const getRadN = () => { return Math.floor(Math.random() * 100) + 1};
-    CHART_DATA.field_段数减少 = getRadN();
+    CHART_DATA.field_段数减少 = FORM_DATA.field_原设计中的压裂段数 - FORM_DATA.field_合并缩减_优化后的压裂段数;
     CHART_DATA.field_费用减少 = getRadN();
     CHART_DATA.field_施工时间减少 = getRadN();
     CHART_DATA.field_桥射联作风险降低 = getRadN();
