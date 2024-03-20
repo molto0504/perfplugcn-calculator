@@ -35,12 +35,11 @@
       </div>
     </div>
 
-    <div id="table-2" style="width: 1350px; margin: 0; padding: 0">
+    <div id="table-2" style="width: 1350px; margin: 0; padding: 0;display: none">
       <table style="font-size: 13px" class="table is-bordered has-text-centered">
         <thead class="has-text-centered">
-        <th class="has-text-centered">item</th>
-        <th class="has-text-centered">单价</th>
-        <th class="has-text-centered">单位</th>
+        <th class="has-text-centered">更多参数</th>
+        <th class="has-text-centered">值</th>
         <th class="has-text-centered">数量</th>
         </thead>
         <tbody>
@@ -50,7 +49,6 @@
             <input id="form-data-压裂车费用-N-1" name="压裂车费用-值" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                    placeholder="请输入" value="0.95">
           </td>
-          <td>万元/台/段</td>
           <td>
             <input  id="form-data-压裂车费用-N-2" name="压裂车费用-数量" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text" placeholder="请输入" value="24">
           </td>
@@ -59,7 +57,6 @@
           <td>混砂车费用</td>
           <td><input id="form-data-混砂车费用-N-1" name="混砂车费用-值" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="0.6"></td>
-          <td>万元/台/段</td>
           <td><input id="form-data-混砂车费用-N-2" name="混砂车费用-费用" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="21"></td>
         </tr>
@@ -67,56 +64,48 @@
           <td>仪表车</td>
           <td><input id="form-data-仪表车费用-N-1" name="仪表车费用" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="0.3"></td>
-          <td>万元/台/段</td>
           <td></td>
         </tr>
         <tr>
           <td>桥射联作费用</td>
           <td><input id="form-data-桥射联作费用-N-1" name="桥射联作费用" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="8"></td>
-          <td>万元/段</td>
           <td></td>
         </tr>
         <tr>
           <td>连油钻塞费用</td>
           <td><input id="form-data-连油钻塞费用-N-1" name="连油钻塞费用" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="3.1"></td>
-          <td>万元/个</td>
           <td></td>
         </tr>
         <tr>
           <td>桥塞费用</td>
           <td><input id="form-data-桥塞费用-N-1" name="桥塞费用" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="1.1"></td>
-          <td>万元/个</td>
           <td></td>
         </tr>
         <tr>
           <td>压裂施工速度</td>
           <td><input id="form-data-压裂施工速度-N-1" name="压裂施工速度" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="2.5"></td>
-          <td>段/天</td>
           <td></td>
         </tr>
         <tr>
           <td>桥射联作耗时</td>
           <td><input id="form-data-桥射联作平均耗时-N-1" name="桥射联作平均耗时" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="3"></td>
-          <td>小时/段</td>
           <td></td>
         </tr>
         <tr>
           <td>桥塞遇阻,提前坐封概率</td>
           <td><input id="form-data-桥塞遇阻或提前坐封概率-N-1" name="桥塞遇阻或提前坐封概率" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="1"></td>
-          <td>%/趟</td>
           <td></td>
         </tr>
         <tr>
           <td>射孔枪点火失败概率</td>
           <td><input id="form-data-射孔枪点火失败概率-N-1" name="射孔枪点火失败概率" class="only-num input is-small has-text-centered" style="background-color: #e3f4eb" type="text"
                      placeholder="请输入" value="1"></td>
-          <td>%/趟</td>
           <td></td>
         </tr>
         </tbody>
@@ -198,8 +187,9 @@
 <script>
   const showMsgOk = (text) => (new Notyf({position: {x: 'right', y: 'top'}})).success(text);
   const showMsgErr = (text) => (new Notyf({position: {x: 'right', y: 'top'}})).error(text);
+  const toggleTable2 = () => $('#table-2').toggle();
   $("#btn-setting").click(
-      () => $('#table-2').toggle()
+      () => toggleTable2()
   );
   $("#btn-about-us").click(
       () => window.location.href = "contactuscn.html"
@@ -229,6 +219,15 @@
   $('.only-num').keyup(function () {
     this.value = this.value.replace(/[^0-9\.]/g,'');
   });
+  $('.only-num').change(function () {
+    refreshResultTable();
+  });
+  $('.only-num').keypress(function(e) {
+    if(e.which == 13) {
+      refreshResultTable();
+    }
+  });
+
 
   const FORM_DATA = {
     field_原设计中的压裂段数: 25,
@@ -284,6 +283,7 @@
   const afterOptimized = () => Object.values(CHART_DATA.afterOptimized);
 
   const refreshResultTable = () => {
+    console.log('refreshj:')
     // LOAD FORM DATA
     FORM_DATA.field_原设计中的压裂段数 = Number($('#form-data-原设计中的压裂段数').val());
     FORM_DATA.field_合并缩减_优化后的压裂段数 = Number($('#form-data-合并缩减-优化后的压裂段数').val());
@@ -303,20 +303,21 @@
     CHART_DATA.beforeOptimized.field_压裂段数 = FORM_DATA.field_原设计中的压裂段数;
     CHART_DATA.afterOptimized.field_压裂段数 = FORM_DATA.field_合并缩减_优化后的压裂段数;
     // TODO: replace mock data
-    CHART_DATA.beforeOptimized.field_压裂费用 = Math.random() * 100;
-    CHART_DATA.beforeOptimized.field_桥射联作费用= Math.random() * 100;
-    CHART_DATA.beforeOptimized.field_连油钻塞费用= Math.random() * 100;
-    CHART_DATA.beforeOptimized.field_桥塞费用= Math.random() * 100;
-    CHART_DATA.beforeOptimized.field_压裂施工周期= Math.random() * 100;
-    CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率= Math.random() * 100;
-    CHART_DATA.beforeOptimized.field_射孔枪点火失败概率= Math.random() * 100;
-    CHART_DATA.afterOptimized.field_压裂费用 = Math.random() * 100;
-    CHART_DATA.afterOptimized.field_桥射联作费用= Math.random() * 100;
-    CHART_DATA.afterOptimized.field_连油钻塞费用= Math.random() * 100;
-    CHART_DATA.afterOptimized.field_桥塞费用= Math.random() * 100;
-    CHART_DATA.afterOptimized.field_压裂施工周期= Math.random() * 100;
-    CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率= Math.random() * 100;
-    CHART_DATA.afterOptimized.field_射孔枪点火失败概率= Math.random() * 100;
+    const getRadN = () => { return Math.floor(Math.random() * 100) + 1};
+    CHART_DATA.beforeOptimized.field_压裂费用 = getRadN();
+    CHART_DATA.beforeOptimized.field_桥射联作费用= getRadN();
+    CHART_DATA.beforeOptimized.field_连油钻塞费用= getRadN();
+    CHART_DATA.beforeOptimized.field_桥塞费用= getRadN();
+    CHART_DATA.beforeOptimized.field_压裂施工周期= getRadN();
+    CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率= getRadN();
+    CHART_DATA.beforeOptimized.field_射孔枪点火失败概率= getRadN();
+    CHART_DATA.afterOptimized.field_压裂费用 = getRadN();
+    CHART_DATA.afterOptimized.field_桥射联作费用= getRadN();
+    CHART_DATA.afterOptimized.field_连油钻塞费用= getRadN();
+    CHART_DATA.afterOptimized.field_桥塞费用= getRadN();
+    CHART_DATA.afterOptimized.field_压裂施工周期= getRadN();
+    CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率= getRadN();
+    CHART_DATA.afterOptimized.field_射孔枪点火失败概率= getRadN();
     // LOAD TABLE
     $('#td4-before-压裂段数').text(CHART_DATA.beforeOptimized.field_压裂段数);
     $('#td4-before-压裂费用').text(CHART_DATA.beforeOptimized.field_压裂费用);
@@ -343,6 +344,18 @@
 
   const drawBarChart = () => {
     const cht = echarts.init(document.getElementById('calculatorPie'));
+    const labelFormatter = (params) => {
+      if (params.name === "压裂段数") {
+        return params.value + '段'
+      }
+      if (params.name === "压裂施工周期") {
+        return params.value + '天'
+      }
+      if (params.name === '桥塞遇阻或提前坐封概率' || params.name === '射孔枪点火失败概率') {
+        return params.value + '%'
+      }
+      return params.value + '万元'
+    };
     const option = {
       grid: {bottom: '0', right: '0'},
       legend: {
@@ -357,7 +370,7 @@
         nameTextStyle: {fontSize: 3},
         nameGap: 3,
         axisLabel: {interval: 0},
-        data: ['压裂段数', '压裂费用(万元)', '桥射联作费用(万元)', '连油钻塞费用(万年)', '桥塞费用(万元)', '压裂施工周期(万元)', '桥塞遇阻,提前坐封概率', '射孔枪点火失败概率']
+        data: ['压裂段数', '压裂费用', '桥射联作费用', '连油钻塞费用', '桥塞费用', '压裂施工周期', '桥塞遇阻或提前坐封概率', '射孔枪点火失败概率']
       },
       yAxis: {show: false},
       series: [
@@ -368,6 +381,7 @@
           barGap: '5%',
           barWidth: '25%',
           itemStyle: {color: '#747474'},
+          label: {normal: {show: true, position: 'top', formatter: labelFormatter}},
         },
         {
           name: '优化段数后(零桥塞压裂TM)',
@@ -376,17 +390,24 @@
           barGap: '5%',
           barWidth: '25%',
           itemStyle: {color: '#0057a7'},
+          label: {normal: {show: true, position: 'top', formatter: labelFormatter}},
         },
       ]
     };
     cht.setOption(option);
   };
-  refreshResultTable()
+  refreshResultTable();
 </script>
 <style>
   .button-vertical-center {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .only-num {
+    animation-name: unset;
+    animation-fill-mode: unset;
+    animation-delay: unset;
+    visibility: unset;
   }
 </style>
