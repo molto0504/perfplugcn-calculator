@@ -173,7 +173,12 @@
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 <script>
+  const showMsgOk = (text) => (new Notyf({position: {x:'right',y:'top'}})).success(text);
+  const showMsgErr = (text) => (new Notyf({position: {x:'right',y:'top'}})).error(text);
+
   const cht = echarts.init(document.getElementById('calculatorPie'));
   const option = {
     grid: {
