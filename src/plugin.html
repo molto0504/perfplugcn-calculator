@@ -179,58 +179,45 @@
   const showMsgOk = (text) => (new Notyf({position: {x:'right',y:'top'}})).success(text);
   const showMsgErr = (text) => (new Notyf({position: {x:'right',y:'top'}})).error(text);
 
-  const cht = echarts.init(document.getElementById('calculatorPie'));
-  const option = {
-    grid: {
-      bottom: '0',
-      right: '0',
-    },
-    legend: {
-      data: ['优化段数前(常规压裂)', '优化段数后(零桥塞压裂TM)'],
-      orient: 'vertical',
-      top: 0,
-      right: 50,
-    },
-    xAxis: {
-      show: false,
-      type: 'category',
-      nameTextStyle: {
-        fontSize: 3,
+  const drawBarChart = () => {
+    const cht = echarts.init(document.getElementById('calculatorPie'));
+    const option = {
+      grid: {bottom: '0', right: '0'},
+      legend: {
+        data: ['优化段数前(常规压裂)', '优化段数后(零桥塞压裂TM)'],
+        orient: 'vertical',
+        top: 0,
+        right: 50,
       },
-      nameGap: 3,
-      axisLabel: {
-        interval: 0,
+      xAxis: {
+        show: false,
+        type: 'category',
+        nameTextStyle: {fontSize: 3},
+        nameGap: 3,
+        axisLabel: {interval: 0},
+        data: ['压裂段数', '压裂费用(万元)', '桥射联作费用(万元)', '连油钻塞费用(万年)', '桥塞费用(万元)', '压裂施工周期(万元)', '桥塞遇阻,提前坐封概率', '射孔枪点火失败概率']
       },
-      data: ['压裂段数', '压裂费用(万元)', '桥射联作费用(万元)', '连油钻塞费用(万年)', '桥塞费用(万元)', '压裂施工周期(万元)', '桥塞遇阻,提前坐封概率', '射孔枪点火失败概率']
-    },
-    yAxis: {
-      show: false,
-    },
-    series: [
-      {
-        name: '优化段数前(常规压裂)',
-        type: 'bar',
-        data: [25, 593, 192, 74, 26, 10, 21, 21],
-        barGap: '5%',
-        barWidth: '25%',
-        itemStyle: {
-          color: '#747474'
+      yAxis: {show: false},
+      series: [
+        {
+          name: '优化段数前(常规压裂)',
+          type: 'bar',
+          data: [25, 593, 192, 74, 26, 10, 21, 21],
+          barGap: '5%',
+          barWidth: '25%',
+          itemStyle: {color: '#747474'},
         },
-      },
-      {
-        name: '优化段数后(零桥塞压裂TM)',
-        type: 'bar',
-        data: [13, 308, 96, 37, 13, 8.5, 11, 11],
-        barGap: '5%',
-        barWidth: '25%',
-        itemStyle: {
-          color: '#0057a7'
+        {
+          name: '优化段数后(零桥塞压裂TM)',
+          type: 'bar',
+          data: [13, 308, 96, 37, 13, 8.5, 11, 11],
+          barGap: '5%',
+          barWidth: '25%',
+          itemStyle: {color: '#0057a7'},
         },
-        emphasis: {
-          focus: 'series'
-        },
-      },
-    ]
+      ]
+    };
+    cht.setOption(option);
   };
-  cht.setOption(option);
+  drawBarChart()
 </script>
