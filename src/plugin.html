@@ -283,8 +283,28 @@
       field_射孔枪点火失败概率: 0,
     }
   };
-  const beforeOptimized = () => Object.values(CHART_DATA.beforeOptimized);
-  const afterOptimized = () => Object.values(CHART_DATA.afterOptimized);
+  const beforeOptimized = () => {
+    const data = [];
+    for (const [key, val] of Object.entries(CHART_DATA.beforeOptimized)) {
+      if (['field_桥塞遇阻提前坐封概率', 'field_射孔枪点火失败概率'].includes(key)) {
+        data.push(val * 100);
+      } else {
+        data.push(val);
+      }
+    }
+    return data;
+  }
+  const afterOptimized = () => {
+    const data = [];
+    for (const [key, val] of Object.entries(CHART_DATA.afterOptimized)) {
+      if (['field_桥塞遇阻提前坐封概率', 'field_射孔枪点火失败概率'].includes(key)) {
+        data.push(val * 100);
+      } else {
+        data.push(val);
+      }
+    }
+    return data;
+  }
 
   const refreshResultTable = () => {
     // LOAD FORM DATA
@@ -323,22 +343,24 @@
     CHART_DATA.beforeOptimized.field_压裂施工周期 = _原周期.toFixed(1);
     CHART_DATA.afterOptimized.field_压裂施工周期 = (_原周期 - (FORM_DATA.field_桥射联作平均耗时_N_1 / 24) * (FORM_DATA.field_原设计中的压裂段数 - FORM_DATA.field_合并缩减_优化后的压裂段数)).toFixed(1)
 
-    CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1)) * 100); //E9
-    CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1)) * 100); //F9
+    const _before_桥塞遇阻提前坐封概率 = 1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1);
+    const _after_桥塞遇阻提前坐封概率 = 1 - Math.pow((1 - FORM_DATA.field_桥塞遇阻或提前坐封概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1);
+    CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率 = _before_桥塞遇阻提前坐封概率; //E9
+    CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率 = _after_桥塞遇阻提前坐封概率; //F9
 
-    CHART_DATA.beforeOptimized.field_射孔枪点火失败概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1)) * 100); //E10
-    CHART_DATA.afterOptimized.field_射孔枪点火失败概率 = Math.round((1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1)) * 100); //F10
+    const _before_射孔枪点火失败概率 = 1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_原设计中的压裂段数 - 1);
+    const _after_射孔枪点火失败概率 = 1 - Math.pow((1 - FORM_DATA.field_射孔枪点火失败概率_N_1 / 100), FORM_DATA.field_合并缩减_优化后的压裂段数 - 1);
+    CHART_DATA.beforeOptimized.field_射孔枪点火失败概率 = _before_射孔枪点火失败概率; //E10
+    CHART_DATA.afterOptimized.field_射孔枪点火失败概率 = _after_射孔枪点火失败概率; //F10
 
-    // TODO: replace mock data
-    const getRadN = () => { return Math.floor(Math.random() * 100) + 1};
     CHART_DATA.field_段数减少 = FORM_DATA.field_原设计中的压裂段数 - FORM_DATA.field_合并缩减_优化后的压裂段数;
     const _原费用 = CHART_DATA.beforeOptimized.field_压裂费用 + CHART_DATA.beforeOptimized.field_桥射联作费用 + CHART_DATA.beforeOptimized.field_连油钻塞费用 + CHART_DATA.beforeOptimized.field_桥塞费用;
     const _现费用 =  CHART_DATA.afterOptimized.field_压裂费用 + CHART_DATA.afterOptimized.field_桥射联作费用 + CHART_DATA.afterOptimized.field_连油钻塞费用 + CHART_DATA.afterOptimized.field_桥塞费用;
     CHART_DATA.field_费用减少 = _原费用 - _现费用;
     CHART_DATA.field_施工时间减少 = (CHART_DATA.beforeOptimized.field_压裂施工周期 - CHART_DATA.afterOptimized.field_压裂施工周期).toFixed(1);
-    const _原风险 = 100 - ((100-CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率) * (100-CHART_DATA.beforeOptimized.field_射孔枪点火失败概率));
-    const _现风险 = 100 - ((100-CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率) * (100-CHART_DATA.afterOptimized.field_射孔枪点火失败概率));
-    CHART_DATA.field_桥射联作风险降低 =  ((_原风险 - _现风险) / 100).toFixed(2);
+    const _原风险 = 1 - ((1-_before_桥塞遇阻提前坐封概率) * (1-_before_射孔枪点火失败概率));
+    const _现风险 = 1 - ((1-_after_桥塞遇阻提前坐封概率) * (1-_after_射孔枪点火失败概率));
+    CHART_DATA.field_桥射联作风险降低 =  _原风险 - _现风险;
     // LOAD TABLE
     $('#td4-before-压裂段数').text(CHART_DATA.beforeOptimized.field_压裂段数);
     $('#td4-before-压裂费用').text(CHART_DATA.beforeOptimized.field_压裂费用);
@@ -346,20 +368,20 @@
     $('#td4-before-连油钻塞费用').text(CHART_DATA.beforeOptimized.field_连油钻塞费用);
     $('#td4-before-桥塞费用').text(CHART_DATA.beforeOptimized.field_桥塞费用);
     $('#td4-before-压裂施工周期').text(CHART_DATA.beforeOptimized.field_压裂施工周期);
-    $('#td4-before-桥塞遇阻或提前坐封概率').text(CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率);
-    $('#td4-before-射孔枪点火失败概率').text(CHART_DATA.beforeOptimized.field_射孔枪点火失败概率);
+    $('#td4-before-桥塞遇阻或提前坐封概率').text(Math.round(CHART_DATA.beforeOptimized.field_桥塞遇阻提前坐封概率 * 100));
+    $('#td4-before-射孔枪点火失败概率').text(Math.round(CHART_DATA.beforeOptimized.field_射孔枪点火失败概率 * 100));
     $('#td4-after-压裂段数').text(CHART_DATA.afterOptimized.field_压裂段数);
     $('#td4-after-压裂费用').text(CHART_DATA.afterOptimized.field_压裂费用);
     $('#td4-after-桥射联作费用').text(CHART_DATA.afterOptimized.field_桥射联作费用);
     $('#td4-after-连油钻塞费用').text(CHART_DATA.afterOptimized.field_连油钻塞费用);
     $('#td4-after-桥塞费用').text(CHART_DATA.afterOptimized.field_桥塞费用);
     $('#td4-after-压裂施工周期').text(CHART_DATA.afterOptimized.field_压裂施工周期);
-    $('#td4-after-桥塞遇阻或提前坐封概率').text(CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率);
-    $('#td4-after-射孔枪点火失败概率').text(CHART_DATA.afterOptimized.field_射孔枪点火失败概率);
+    $('#td4-after-桥塞遇阻或提前坐封概率').text(Math.round(CHART_DATA.afterOptimized.field_桥塞遇阻提前坐封概率 * 100));
+    $('#td4-after-射孔枪点火失败概率').text(Math.round(CHART_DATA.afterOptimized.field_射孔枪点火失败概率 * 100));
     $('#td3-段数减少').text(`${CHART_DATA.field_段数减少}段`);
     $('#td3-费用减少').text(`${CHART_DATA.field_费用减少}万元`);
     $('#td3-施工时间减少').text(`${CHART_DATA.field_施工时间减少}天`);
-    $('#td3-桥射联作风险降低').text(`${CHART_DATA.field_桥射联作风险降低}%`);
+    $('#td3-桥射联作风险降低').text(`${(CHART_DATA.field_桥射联作风险降低 * 100).toFixed(2)}%`);
     drawBarChart()
   };
 
@@ -373,7 +395,7 @@
         return params.value + '天'
       }
       if (params.name === '桥塞遇阻或提前坐封概率' || params.name === '射孔枪点火失败概率') {
-        return params.value + '%'
+        return Math.round(params.value) + '%'
       }
       return params.value + '万元'
     };
