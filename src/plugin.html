@@ -27,11 +27,11 @@
         <button id="btn-setting" style="margin-right: 8px" class="column button button-vertical-center is-link">
           更多参数设置
         </button>
-        <button id="btn-calculate" style="margin-right: 8px" class="column button button-vertical-center is-link">计算
-        </button>
-        <button id="btn-capture" style="margin-right: 8px" class="column button button-vertical-center is-link">截图
-        </button>
-        <button id="btn-about-us" class="column button button-vertical-center is-link">联系我们</button>
+<!--        <button id="btn-calculate" style="margin-right: 8px" class="column button button-vertical-center is-link">计算-->
+<!--        </button>-->
+<!--        <button id="btn-capture" style="margin-right: 8px" class="column button button-vertical-center is-link">截图-->
+<!--        </button>-->
+<!--        <button id="btn-about-us" class="column button button-vertical-center is-link">联系我们</button>-->
       </div>
     </div>
 
@@ -177,12 +177,12 @@
     </table>
   </div>
 </div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">-->
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
 <script>
   const showMsgOk = (text) => (new Notyf({position: {x: 'right', y: 'top'}})).success(text);
@@ -191,31 +191,31 @@
   $("#btn-setting").click(
       () => toggleTable2()
   );
-  $("#btn-about-us").click(
-      () => window.location.href = "contactuscn.html"
-  );
-  $("#btn-capture").click(
-      () => {
-        showMsgOk("正在生成截图请等待...");
-        html2canvas(document.querySelector("#capture")).then(canvas => {
-          var dataURL = canvas.toDataURL("image/png");
-          var data = atob(dataURL.substring("data:image/png;base64,".length)),
-              asArray = new Uint8Array(data.length);
-          for (var i = 0, len = data.length; i < len; ++i) {
-            asArray[i] = data.charCodeAt(i);
-          }
-          var blob = new Blob([asArray.buffer], {type: "image/png"});
-          saveAs(blob, "photo.png");
-          showMsgOk("截图已保存");
-        });
-      }
-  );
-  $("#btn-calculate").click(
-      () => {
-        refreshResultTable();
-        showMsgOk("计算结果已更新");
-      }
-  );
+  // $("#btn-about-us").click(
+  //     () => window.location.href = "contactuscn.html"
+  // );
+  // $("#btn-capture").click(
+  //     () => {
+  //       showMsgOk("正在生成截图请等待...");
+  //       html2canvas(document.querySelector("#capture")).then(canvas => {
+  //         var dataURL = canvas.toDataURL("image/png");
+  //         var data = atob(dataURL.substring("data:image/png;base64,".length)),
+  //             asArray = new Uint8Array(data.length);
+  //         for (var i = 0, len = data.length; i < len; ++i) {
+  //           asArray[i] = data.charCodeAt(i);
+  //         }
+  //         var blob = new Blob([asArray.buffer], {type: "image/png"});
+  //         saveAs(blob, "photo.png");
+  //         showMsgOk("截图已保存");
+  //       });
+  //     }
+  // );
+  // $("#btn-calculate").click(
+  //     () => {
+  //       refreshResultTable();
+  //       showMsgOk("计算结果已更新");
+  //     }
+  // );
   $('.only-num').keyup(function () {
     this.value = this.value.replace(/[^0-9\.]/g,'');
   });
@@ -446,6 +446,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #73a676;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    overflow: hidden;
   }
   .input {
     animation-name: unset;
