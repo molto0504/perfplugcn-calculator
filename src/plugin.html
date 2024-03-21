@@ -1,4 +1,4 @@
-<div id="capture" style="width: 1350px; margin-left: auto; margin-right: auto; margin-bottom: 0; padding-bottom: 0">
+<div id="capture" style="background-color: #364960;">
   <div style="width: 1350px; margin-left: auto; margin-right: auto; margin-bottom: 0; padding-bottom: 0">
 
     <div id="table-1" style="width: 1350px; margin: 0; padding: 0">
@@ -25,7 +25,7 @@
     <div id="control-panel" style="width: 1350px; margin: 0; padding: 0">
       <div class="columns" style="margin: 0; padding: 0 0 8px 0">
 <!--        <el-button id="btn-setting" type="primary" plain>更多参数设置</el-button>-->
-        <button id="btn-setting" class="bw0 br2 bg-blue pa2 white fw1 tc ttu tracked">更多参数设置</button>
+        <button id="btn-setting" class="bw0 br2 bg-blue pa2 white fw1 tc ttu tracked" style="border-width: 0">更多参数设置</button>
 <!--        <button id="btn-setting" style="margin-right: 8px" class="column button button-vertical-center is-link">-->
 <!--          更多参数设置-->
 <!--        </button>-->
@@ -188,7 +188,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
 <script>
   const showMsgOk = (text) => (new Notyf({position: {x: 'right', y: 'top'}})).success(text);
@@ -412,6 +412,9 @@
         orient: 'vertical',
         top: 0,
         right: 50,
+        textStyle: {
+          color: 'white'
+        }
       },
       xAxis: {
         show: false,
@@ -430,7 +433,7 @@
           barGap: '5%',
           barWidth: '25%',
           itemStyle: {color: '#747474'},
-          label: {normal: {show: true, position: 'top', formatter: labelFormatter}},
+          label: {normal: {show: true, position: 'top', formatter: labelFormatter, color: "white"}},
         },
         {
           name: '优化段数后(零桥塞压裂TM)',
@@ -438,8 +441,8 @@
           data: afterOptimized(),
           barGap: '5%',
           barWidth: '25%',
-          itemStyle: {color: '#0057a7'},
-          label: {normal: {show: true, position: 'top', formatter: labelFormatter}},
+          itemStyle: {color: '#03a7ee'},
+          label: {normal: {show: true, position: 'top', formatter: labelFormatter, color: "white"}},
         },
       ]
     };
@@ -460,12 +463,15 @@
     visibility: unset;
   }
   .is-bordered {
+    color: white;
     border-collapse: separate;
     border-spacing: 0; /* 这将确保单元格之间没有额外的空间 */
+    border-color: white;
   }
   .pa2 {
     border-left: 1px solid black;
     border-right: 1px solid black;
+    border-color: white;
     padding: 5px; /* 为了美观，添加一些内边距 */
   }
 </style>
